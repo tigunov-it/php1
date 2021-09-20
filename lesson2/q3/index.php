@@ -1,23 +1,23 @@
 <?php
 function addition($a, $b){
-    return "Сумма чисел равна " . ($a + $b);
+    return $a + $b;
 }
 echo addition(200, 400);
 
 function subtraction($a, $b){
-    return " Разность чисел равна " . ($a - $b);
+    return $a - $b;
 }
 echo subtraction(200000, 500);
 
 function multiplication($a, $b){
-    return " Результат умножения чисел равен " . ($a * $b);
+    return $a * $b;
 }
 echo multiplication(3, 5);
 
 function division($a, $b){
     if ($b == 0)
-        return var_dump($a / $b);
+        return "Делить на ноль нельзя";
     else
-        return " Результат деления чисел равен " . ($a / $b);
+        return $a / $b;
 }
-echo division(15, 0);
+echo division(15, 3);
