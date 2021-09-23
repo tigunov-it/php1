@@ -1,16 +1,15 @@
 <ul>
-<?
+<?php
+
 $menu = [
-    '<a href="/">Главная</a>',
-    '<a href="/?page=catalogspa">Каталог</a>',
-    '<a href="/?page=catalogssr">Каталог</a>',
-    '<a href="/?page=about">О нас</a>'
-];
+    "/" => "Главная",
+    "/?page=catalogspa" => "Каталог",
+    "/?page=catalogssr" => "Каталог",
+    "/?page=about" => "О нас"
+]
 
 ?>
-    <? foreach ($menu as $item): ?>
-        <li>
-            <?=$item?>
-        </li>
-    <? endforeach; ?>
+    <?php foreach ($menu as $key => $item): ?>
+        <li> <a href='<?=$key ?>'> <?=$item ?> </a> </li>
+    <?php endforeach; ?>
 </ul>

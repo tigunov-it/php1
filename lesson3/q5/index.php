@@ -1,7 +1,6 @@
 <?php
 function underscore($text) {
-    $replaced = str_replace(' ', '_', $text);
-    echo $replaced;
+    return str_replace(' ', '_', $text);
 }
 
-underscore("Век живи - век учись");
+echo underscore("Век живи - век учись");
