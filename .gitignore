@@ -5,3 +5,4 @@ mutagen
 docker-compose.yml
 Makefile
 traefik.yml
+.DS_Store
