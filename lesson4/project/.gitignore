@@ -1,0 +1,7 @@
+.idea
+db
+mutagen
+.env
+docker-compose.yml
+Makefile
+traefik.yml
