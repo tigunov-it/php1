@@ -1,6 +1,13 @@
 <?php
 $smallPhoto = scandir('./gallery_img/small');
 $smallPhoto = array_splice($smallPhoto, 2);
+
+$db = mysqli_connect("mariadb", "gb_php", "gb_php", "gb_php");
+
+$result = mysqli_query($db, "SELECT id, title FROM news");
+
+$resultPhoto = mysqli_query($db, "SELECT id, url, name FROM photo");
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -26,8 +33,36 @@ $smallPhoto = array_splice($smallPhoto, 2);
 </head>
 
 <body>
+
 <div id="main">
-    <div class="post_title"><h2>Галерея 1</h2></div>
+    <div class="post_title2"><h2>Галерея. Запросы из базы данных</h2></div>
+    <div class="gallery">
+
+        <?php foreach ($resultPhoto as $photosql): ?>
+
+            <a class="photo2" href="photo.php?id=<?= $photosql['id'] ?>"> <img src="<?= $photosql['url'] ?><?= $photosql['name'] ?>" width="150" height="100" alt="photos"/> </a>
+
+        <?php endforeach; ?>
+
+    </div>
+
+</div>
+
+<div id="main">
+
+    <h2>Новости</h2>
+    <ul>
+
+        <?php foreach ($result as $item): ?>
+            <li><a href="news.php?id=<?= $item['id'] ?>"> <?= $item['title'] ?> </a>  </li>
+        <?php endforeach; ?>
+
+    </ul>
+</div>
+
+
+<div id="main">
+    <div class="post_title"><h2>Галерея. fancybox</h2></div>
 
     <div class="gallery">
 
