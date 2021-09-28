@@ -6,7 +6,7 @@ $db = mysqli_connect("mariadb", "gb_php", "gb_php", "gb_php");
 
 $result = mysqli_query($db, "SELECT id, title FROM news");
 
-$resultPhoto = mysqli_query($db, "SELECT id, url, name FROM photo");
+$resultPhoto = mysqli_query($db, "SELECT id, url, name FROM photo ORDER BY count DESC");
 
 ?>
 <!DOCTYPE html>

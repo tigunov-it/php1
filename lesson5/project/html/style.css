@@ -1,6 +1,6 @@
 body {
 	background: #444 url('img/body.jpg');
-	color: #444;
+	color: #fff;
 	font: normal 1.2em Verdana,Arial,sans-serif;
 	height: 100%;
 	padding-bottom: 1px;
@@ -24,22 +24,35 @@ a.photo:hover img{
 	margin: 0;
 	padding: 0;
 }
+
 a:hover img{
 border:3px solid #034F80;
 animation: movement 0.2s infinite;
 -webkit-animation: movement 0.2s infinite;
-	}
+}
+
 @keyframes movement {
     0% {transform: rotate(0deg)}
     25% {transform: rotate(10deg)}
     50% {transform: rotate(0deg)}
     75% {transform: rotate(-10deg)}
     100% {transform: rotate(0deg)}
-    }
-	@-webkit-keyframes movement {
+}
+
+@-webkit-keyframes movement {
     0% {transform: rotate(0deg)}
     25% {transform: rotate(10deg)}
     50% {transform: rotate(0deg)}
     75% {transform: rotate(-10deg)}
     100% {transform: rotate(0deg)}
-    }
+}
+
+.fullscr {
+	display: flex;
+	justify-content: center;
+}
+
+.count {
+	display: flex;
+	justify-content: center;
+}
