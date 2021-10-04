@@ -12,7 +12,7 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
     volumes:
 #    - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
-    - ./db:/var/lib/mysql # I want to manage volumes manually.
+    - ./dump_db:/var/lib/mysql # I want to manage volumes manually.
 
   php:
     image: wodby/wordpress-php:$PHP_TAG
