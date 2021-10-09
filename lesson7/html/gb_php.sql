@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: mariadb
--- Время создания: Окт 01 2021 г., 07:52
+-- Время создания: Окт 05 2021 г., 11:22
 -- Версия сервера: 10.5.12-MariaDB
 -- Версия PHP: 7.4.20
 
@@ -24,6 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `basket`
+--
+
+CREATE TABLE `basket` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `item_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `catalog`
 --
 
@@ -32,7 +44,7 @@ CREATE TABLE `catalog` (
   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0,
   `price` int(11) NOT NULL,
-  `photo` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'plug.jpg',
+  `photo` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -95,6 +107,14 @@ INSERT INTO `users` (`id`, `name`) VALUES
 --
 
 --
+-- Индексы таблицы `basket`
+--
+ALTER TABLE `basket`
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `item_id` (`item_id`);
+
+--
 -- Индексы таблицы `catalog`
 --
 ALTER TABLE `catalog`
@@ -118,6 +138,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `basket`
+--
+ALTER TABLE `basket`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- AUTO_INCREMENT для таблицы `catalog`
 --
 ALTER TABLE `catalog`
@@ -132,6 +158,13 @@ ALTER TABLE `users`
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
+
+--
+-- Ограничения внешнего ключа таблицы `basket`
+--
+ALTER TABLE `basket`
+  ADD CONSTRAINT `basket_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `basket_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `catalog` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `reviews`
