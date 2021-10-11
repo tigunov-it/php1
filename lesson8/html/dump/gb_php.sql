@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: mariadb
--- Время создания: Окт 11 2021 г., 07:00
+-- Время создания: Окт 11 2021 г., 11:32
 -- Версия сервера: 10.5.12-MariaDB
 -- Версия PHP: 7.4.20
 
@@ -87,20 +87,23 @@ INSERT INTO `reviews` (`item_id`, `body`, `user_id`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Аноним'
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Аноним',
+  `pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hash` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`) VALUES
-(1, 'Петя'),
-(2, 'Вася'),
-(3, 'Лена'),
-(4, 'Анна'),
-(5, 'Ольга'),
-(6, 'Аноним');
+INSERT INTO `users` (`id`, `name`, `pass`, `hash`) VALUES
+(1, 'Петя', '321', '2109738363616414bc283b65.87219572'),
+(2, 'Вася', '234', ''),
+(3, 'Лена', '345', ''),
+(4, 'Анна', '456', ''),
+(5, 'Ольга', '567', ''),
+(6, 'Аноним', '', ''),
+(7, 'admin', '123', '19720108286164135db632e5.71871078');
 
 --
 -- Индексы сохранённых таблиц
@@ -141,7 +144,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `basket`
 --
 ALTER TABLE `basket`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT для таблицы `catalog`
@@ -153,7 +156,7 @@ ALTER TABLE `catalog`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
